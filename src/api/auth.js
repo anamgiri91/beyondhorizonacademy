@@ -105,7 +105,8 @@ export async function signUpWithEmail(email, password) {
 export function signInWithGoogle() {
   ensureAuthConfig();
   const redirectTo = encodeURIComponent(window.location.origin + window.location.pathname);
-  window.location.href = `${SUPABASE_URL}/auth/v1/authorize?provider=google&redirect_to=${redirectTo}`;
+  const apiKey = encodeURIComponent(SUPABASE_ANON_KEY);
+  window.location.href = `${SUPABASE_URL}/auth/v1/authorize?provider=google&redirect_to=${redirectTo}&apikey=${apiKey}`;
 }
 
 export { SUPABASE_ANON_KEY, SUPABASE_URL, TOKEN_KEY };
